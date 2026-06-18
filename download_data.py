@@ -2,7 +2,7 @@ import requests
 import os
 
 url = "https://msmarco.z22.web.core.windows.net/msmarcoranking/msmarco-docs.trec.gz"
-# المجلد الذي تريده
+
 folder = "E:/IR_Project_Data/downloads/d4863e4f342982b51b9a8fc668b2d0c0"
 file_path = os.path.join(folder, "msmarco-docs.trec.gz")
 

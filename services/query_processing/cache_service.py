@@ -1,6 +1,6 @@
 class IRCacheService:
     def __init__(self):
-        # قاموس تخزين مؤقت في الذاكرة العشوائية
+      
         self.search_cache = {}
 
     def get_cached_results(self, query_string):

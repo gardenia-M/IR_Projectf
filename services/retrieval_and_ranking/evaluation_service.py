@@ -22,7 +22,7 @@ class EvaluationService:
         return len(relevant_retrieved) / float(k)
 
     def calculate_recall(self, retrieved_ids, relevant_ids):
-        """
+        """[]
         حساب الاستدعاء (Recall) نسبةً إلى جميع الوثائق ذات الصلة الحقيقية في ملف الـ qrels
         """
         if not relevant_ids:

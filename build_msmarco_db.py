@@ -3,7 +3,7 @@ import os
 
 def build_database():
     db_path = "documents.db"
-    print("⏳ جاري إنشاء والاتصال بقاعدة البيانات SQLite...")
+    print(" جاري إنشاء والاتصال بقاعدة البيانات SQLite...")
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     

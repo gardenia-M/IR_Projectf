@@ -3,7 +3,7 @@ import re
 import os
 from services.preprocessing.processor import PreprocessingService
 
-# المسار المحلي للبيانات على القرص E
+
 LOCAL_DATA_PATH = r"E:\ir_datasets_cache\downloads\d4863e4f342982b51b9a8fc668b2d0c0\msmarco-docs.trec.gz"
 
 def test_preprocessing_pipeline():
@@ -16,7 +16,7 @@ def test_preprocessing_pipeline():
         return
 
     try:
-        # قراءة أول وثيقة فقط لفحصها
+       
         with gzip.open(LOCAL_DATA_PATH, 'rt', encoding='utf-8') as f:
             full_text = ""
             in_text = False
@@ -31,15 +31,15 @@ def test_preprocessing_pipeline():
             
             raw_sample = full_text.strip()
 
-        # تشغيل التابع الخاص بكِ لمعالجة النص
+      
         cleaned_sample = PreprocessingService.clean_text(raw_sample)
 
-        # دالة الفحص الذكي للـ Pre-processing
+     
         has_uppercase = any(char.isupper() for char in cleaned_sample)
         has_url = "http" in cleaned_sample or "https" in cleaned_sample or "www" in cleaned_sample
         has_punctuation = any(char in '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~' for char in cleaned_sample)
         
-        # كلمات توقف شائعة جداً في MS MARCO (مثل the, is, an, of)
+      
         has_stopwords = any(word in cleaned_sample.split() for word in ["the", "is", "and", "of", "to", "in"])
 
         print("\n[1] عينة من النص الخام (Raw Text Sample):")
@@ -49,7 +49,7 @@ def test_preprocessing_pipeline():
         print(f"{cleaned_sample[:150]}...")
         print("-" * 60)
 
-        # النتائج والتقييم التلقائي
+      
         success = True
         
         if has_uppercase:
@@ -76,8 +76,8 @@ def test_preprocessing_pipeline():
         else:
             print(" نجاح: تم فلترة وحذف كلمات التوقف (Stop Words).")
 
-        # فحص تقريبي للـ Stemming / Lemmatization
-        # نتحقق إذا تحولت الكلمات المنتهية بـ ing أو ed إلى أصلها
+       
+      
         if "emitting" in cleaned_sample or "developed" in cleaned_sample:
             print(" تنبيه: الكلمات ما زالت تحتفظ باللواحق (قد يكون الـ Stemming/Lemmatization بحاجة لمراجعة).")
         else:

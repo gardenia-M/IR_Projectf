@@ -15,10 +15,10 @@ class BERTService:
         توليد الـ Embeddings وحفظها في ملف محلي
         """
         print("[INFO] جاري تحويل النصوص إلى متجهات دلالية (Dense Vectors)...")
-        # حساب المتجهات (Embeddings)
+       
         embeddings = self.model.encode(cleaned_documents, show_progress_bar=True)
         
-        # حفظ المتجهات محلياً لسرعة الاستدعاء اللاحق
+       
         with open(save_path, 'wb') as f:
             pickle.dump(embeddings, f)
         return embeddings

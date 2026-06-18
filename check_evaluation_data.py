@@ -33,14 +33,14 @@ def verify_queries_and_qrels():
     print(" [1] ملفات الاستعلامات (Queries / Testing Data):")
     if queries_found:
         print(f"    تم العثور على {len(queries_found)} ملف(ات) مرشحة للاستعلامات:")
-        for path in queries_found[:3]: # عرض أول 3 ملفات فقط للاختصار
+        for path in queries_found[:3]: 
             print(f"     - {os.path.relpath(path, base_cache_path)}")
     else:
         print("   تنبيه: لم يتم العثور على ملفات باسم queries مباشرة في الكاش الرئيسي.")
 
     print("-" * 60)
 
-    # عرض نتائج الـ qrels
+   
     print("📋 [2] ملفات الأحكام والملائمة (Qrels / Ground Truth):")
     if qrels_found:
         print(f"    تم العثور على {len(qrels_found)} ملف(ات) مرشحة للأحكام والتقييم:")

@@ -14,13 +14,13 @@ class BM25Service:
         """
         بناء كشاف BM25 وحفظه محلياً
         """
-        # نموذج BM25 يتوقع النصوص مقسمة إلى كلمات (Tokenized)
+       
         tokenized_corpus = [doc.split() for doc in cleaned_documents]
         
-        # بناء النموذج وتمرير المعاملات k1 و b
+       
         self.bm25 = BM25Okapi(tokenized_corpus, k1=self.k1, b=self.b)
         
-        # حفظ الكائن محلياً
+       
         with open(save_path, 'wb') as f:
             pickle.dump(self.bm25, f)
             

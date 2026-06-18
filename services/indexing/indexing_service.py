@@ -20,12 +20,12 @@ class IndexingService:
         inverted_index = defaultdict(list)
         
         for doc_id, doc_text in zip(doc_ids, cleaned_documents):
-            # تقسيم النص إلى مصطلحات الفهرسة
+          
             terms = doc_text.split()
-            # حساب التكرارات داخل الوثيقة للمصطلحات لمنع التكرار في القائمة
+           
             unique_terms = set(terms)
             for term in unique_terms:
-                # إضافة معرف الوثيقة إلى قائمة المصطلح المغذى
+               
                 inverted_index[term].append(doc_id)
                 
         return dict(inverted_index)
